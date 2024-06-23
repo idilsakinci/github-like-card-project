@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TeamComponent } from './components/team/team.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    TeamComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
