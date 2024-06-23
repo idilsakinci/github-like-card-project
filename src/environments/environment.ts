@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyB-_z51Qi8iXSamXL8mzTe2EF4_hbskiYE',
-    authDomain: 'github-like-card-bcb85.firebaseapp.com',
-    projectId: 'github-like-card-bcb85',
-    storageBucket: 'github-like-card-bcb85.appspot.com',
-    messagingSenderId: '702762229448',
-    appId: '1:702762229448:web:99802d4d0b6be994b48ffd',
-    measurementId: 'G-WQZC7Q7B9S',
+    apiKey: 'AIzaSyB_Rb9jYYDwyWBt2OkNl_aDRYNXCPUvsPo',
+    authDomain: 'like-card-ff819.firebaseapp.com',
+    projectId: 'like-card-ff819',
+    storageBucket: 'like-card-ff819.appspot.com',
+    messagingSenderId: '981630356996',
+    appId: '1:981630356996:web:b3e33a28315124dde4ef51',
+    measurementId: 'G-3Z6728SY1K',
   },
 };

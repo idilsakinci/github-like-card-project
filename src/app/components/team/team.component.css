@@ -1,0 +1,14 @@
+.heart-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+.heart-icon .filled #heart-path {
+  fill: #bf3989;
+  stroke: #bf3989;
+}
+.heart-icon .unfilled #heart-path {
+  fill: white;
+  stroke: #bf3989;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../service/auth/auth.service';
+import { FirestoreService } from '../../service/firestore/firestore.service';
 
 @Component({
   selector: 'app-register',
@@ -10,15 +11,31 @@ import { AuthService } from '../../service/auth.service';
 export class RegisterComponent {
   email: string = '';
   password: string = '';
+  fullName: string = '';
+  phone: string = '';
+  applicationFor: string = '';
+  salary: number = 0;
+  about: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService,  private firestoreService: FirestoreService, private router: Router) {}
 
   onSubmit() {
     this.authService
       .register(this.email, this.password)
       .then((response) => {
-        console.log('Registration successful', response);
-        this.router.navigate(['/profile']);
+        const user = {
+          email: this.email,
+          fullName: this.fullName,
+          phone: this.phone,
+          applicationFor: this.applicationFor,
+          salary: this.salary,
+          about: this.about,
+          uid: response.user?.uid
+        };
+        this.firestoreService.createUser(user).then(() => {
+          console.log('User data saved to Firestore');
+          this.router.navigate(['/profile']);
+        });
       })
       .catch((err) => {
         console.error('Registration error:', err);
