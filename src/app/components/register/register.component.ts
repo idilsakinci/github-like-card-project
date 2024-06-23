@@ -41,4 +41,9 @@ export class RegisterComponent {
         console.error('Registration error:', err);
       });
   }
+
+  isFormInvalid(): boolean {
+    return this.email === '' || this.fullName === '' || this.phone === '' || this.applicationFor === '' || this.salary === 0 || this.about === '' || this.password === '';
+  }
+
 }
