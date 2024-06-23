@@ -26,7 +26,9 @@ export class TeamComponent implements OnInit {
   ngOnInit() {
     this.user$.subscribe(user => {
       if (user) {
-        this.currentUser = user;
+        this.firestoreService.getUserByUID(user.uid).subscribe(currentUser => {
+          this.currentUser = currentUser;
+        });
         this.firestoreService.getAllUsers().subscribe(users => {
           this.allUsers = users.filter(u => u.uid !== user.uid).map(u => ({ ...u, isHeartFilled: false }));
         });
