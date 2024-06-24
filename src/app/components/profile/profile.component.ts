@@ -34,4 +34,9 @@ export class ProfileComponent implements OnInit {
       console.log("Logout successful");
     });
   }
+
+  redirectToTeamPage() {
+    this.router.navigate(['/team']);
+  }
+
 }
