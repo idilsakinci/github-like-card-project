@@ -39,4 +39,9 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/team']);
   }
 
+  redirectToProfilePage() {
+    this.router.navigate(['/profile']);
+  }
+
+
 }

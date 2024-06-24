@@ -6,12 +6,12 @@
           <div class="hidden md:block">
             <div class="flex items-baseline space-x-4">
               <a
-                href="/profile"
+                (click)="redirectToProfilePage()"
                 class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >Profile</a
               >
               <a
-                href="/team"
+                (click)="redirectToTeamPage()"
                 class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                 aria-current="page"
                 >Team</a
@@ -138,14 +138,14 @@
     <div class="md:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <a
-          href="/profile"
+          (click)="redirectToProfilePage()"
           class="block rounded-b-md px-3 py-2 text-base font-medium text-white"
           aria-current="page"
           >Profile</a
         >
         <a
-          href="/team"
-          class="block rounded-md  bg-gray-900 px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          (click)="redirectToTeamPage()"
+          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
           >Team</a
         >
       </div>
@@ -160,9 +160,11 @@
             />
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">{{currentUser?.fullName}}</div>
+            <div class="text-base font-medium leading-none text-white">
+              {{ currentUser?.fullName }}
+            </div>
             <div class="text-sm font-medium leading-none text-gray-400">
-              {{currentUser?.email}}
+              {{ currentUser?.email }}
             </div>
           </div>
 
@@ -220,29 +222,61 @@
     <div class="bg-white py-24 sm:py-10">
       <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8">
         <div class="max-w-2xl">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2
+            class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
             Meet our leadership
           </h2>
           <p class="mt-6 text-lg leading-8 text-gray-600">
             You can see and vote team members here.
           </p>
         </div>
-        <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <ul
+          role="list"
+          class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
+        >
           <li *ngFor="let user of allUsers">
             <div class="flex items-center gap-x-6">
-              <img class="h-16 w-16 rounded-full"   class="h-16 w-16 rounded-full"
-              src="../../../assets/images/user.jpg" alt="" />
+              <img
+                class="h-16 w-16 rounded-full"
+                class="h-16 w-16 rounded-full"
+                src="../../../assets/images/user.jpg"
+                alt=""
+              />
               <div>
-                <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">
+                <h3
+                  class="text-base font-semibold leading-7 tracking-tight text-gray-900"
+                >
                   {{ user.fullName }}
                 </h3>
                 <p class="text-sm font-semibold leading-6 text-indigo-600">
                   {{ user.applicationFor }}
                 </p>
               </div>
-              <button (click)="toggleHeart(user)" class="heart-icon" aria-label="Like">
-                <svg id="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="octicon octicon-heart" [ngClass]="{ filled: user.isHeartFilled, unfilled: !user.isHeartFilled }">
-                  <path id="heart-path" fill="none" stroke="currentColor" stroke-width="1.4" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              <button
+                (click)="toggleHeart(user)"
+                class="heart-icon"
+                aria-label="Like"
+              >
+                <svg
+                  id="heart"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  class="octicon octicon-heart"
+                  [ngClass]="{
+                    filled: user.isHeartFilled,
+                    unfilled: !user.isHeartFilled
+                  }"
+                >
+                  <path
+                    id="heart-path"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.4"
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
                 </svg>
               </button>
             </div>
@@ -251,6 +285,4 @@
       </div>
     </div>
   </main>
-
-
 </div>

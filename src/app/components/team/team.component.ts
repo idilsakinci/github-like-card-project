@@ -46,4 +46,12 @@ export class TeamComponent implements OnInit {
   toggleHeart(user:any) {
     user.isHeartFilled = !user.isHeartFilled;
   }
+
+  redirectToTeamPage() {
+    this.router.navigate(['/team']);
+  }
+
+  redirectToProfilePage() {
+    this.router.navigate(['/profile']);
+  }
 }

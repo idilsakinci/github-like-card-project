@@ -6,7 +6,7 @@
           <div class="hidden md:block">
             <div class="flex items-baseline space-x-4">
               <a
-                href="/profile"
+                (click)="redirectToProfilePage()"
                 class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                 aria-current="page"
                 >Profile</a
@@ -138,13 +138,13 @@
     <div class="md:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
         <a
-          href="/profile"
+          (click)="redirectToProfilePage()"
           class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
           aria-current="page"
           >Profile</a
         >
         <a
-          href="/team"
+          (click)="redirectToTeamPage()"
           class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
           >Team</a
         >
